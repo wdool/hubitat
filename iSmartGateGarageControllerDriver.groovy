@@ -31,6 +31,8 @@
  *    2019-03-14  Bob Mergner  More cleanup
  *    2019-06-29  Shane Lord   Adjusted GoGoGate driver to work with the new iSmartGate and iSmartGate Pro
  *
+ *    GoGoGate and iSmartGate are trademarks and/or copyrights of REMSOL EUROPE S.L. and its affiliates
+ *    	 https://ismartgate.com
  */
 
 def version() {"v0.1.20190629"}
