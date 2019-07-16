@@ -30,12 +30,13 @@
  *    2019-03-13  Bob Mergner  Cleaned up and refactored.  Added every two second polling for more reactive automation chains in rules
  *    2019-03-14  Bob Mergner  More cleanup
  *    2019-06-29  Shane Lord   Adjusted GoGoGate driver to work with the new iSmartGate and iSmartGate Pro
+ *    2019-07-16  Shane Lord   Added capability to use door open/close sensor as Hubitat Contact Sensor
  *
  *    GoGoGate and iSmartGate are trademarks and/or copyrights of REMSOL EUROPE S.L. and its affiliates
  *    	 https://ismartgate.com
  */
 
-def version() {"v0.1.20190629"}
+def version() {"v0.1.20190716"}
 
 import hubitat.helper.InterfaceUtils
 
@@ -43,9 +44,9 @@ metadata {
     definition (name: "iSmartGate Garage Controller", namespace: "bcsmart", author: "Bob Mergner") {
         capability "Initialize"
         capability "Refresh"
-		capability "DoorControl"
-		
-		attribute "door", "string"
+	capability "DoorControl"
+	capability "Contact Sensor"		
+	attribute "door", "string"
     }
 }
 
