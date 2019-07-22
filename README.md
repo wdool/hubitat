@@ -8,3 +8,5 @@ Drivers I've made or modified for my Hubitat Elevation
 - Nue Zigbee Single, Double and Triple Gang Wall Switch Drivers
   Modified to allow Endpoint to be set by preference setting from original driver by 
   https://github.com/GeorgeCastanza/Nue-Zigbee-drivers-for-Hubitat
+  
+  Zigbee switches available from https://3asmarthome.com/products in Australia
