@@ -75,7 +75,8 @@ def parse(String description) {
 	}
     else if (description?.startsWith('on/off: ')){
   //  log.debug "onoff"
-    def refreshCmds = zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: "0x${epid1}"])          
+    def refreshCmds = zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: "0x${epid1}"]) +
+    				  zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: "0x${epid2}"])          
     
    return refreshCmds.collect { new hubitat.device.HubAction(it) }     
     	//def resultMap = zigbee.getKnownDescription(description)
