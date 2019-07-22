@@ -2,7 +2,7 @@
 Drivers I've made or modified for my Hubitat Elevation
 
 - iSmartGate
-  Modified for iSmartGate controller from GoGate driver by 
+  Modified for iSmartGate controller from GoGoGate driver by 
   https://github.com/bmergner/bcsmart
   
 - Nue Zigbee Single Gang Wall Switch Driver
