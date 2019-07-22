@@ -52,8 +52,6 @@ metadata {
 
 }
 
-}
-
 preferences {
     input("epid1", "text", title: "NUE Endpoint ID Switch 1", description: "[Endpoint ID of your NUE Zigbee Switch Button 1]", required: true)
     input("epid2", "text", title: "NUE Endpoint ID Switch 2", description: "[Endpoint ID of your NUE Zigbee Switch Button 2]", required: true)
