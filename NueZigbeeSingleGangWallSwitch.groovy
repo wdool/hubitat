@@ -48,6 +48,7 @@ metadata {
 
 preferences {
     input("epid", "text", title: "NUE Endpoint ID", description: "[Endpoint ID of your NUE Zigbee Switch]", required: true)
+    input name: "logEnable", type: "bool", title: "Enable debug logging", defaultValue: true
 }
        
 // Parse incoming device messages to generate events
@@ -67,7 +68,7 @@ def parse(String description) {
 	}
     else if (description?.startsWith('on/off: ')){
     log.debug "onoff"
-    def refreshCmds = zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: 0x${epid}])          
+    def refreshCmds = zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: "0x${epid}"])          
     
    return refreshCmds.collect { new hubitat.device.HubAction(it) }     
     	//def resultMap = zigbee.getKnownDescription(description)
@@ -92,7 +93,7 @@ private Map parseCatchAllMessage(String description) {
 	log.debug cluster
     
     if (cluster.clusterId == 0x0006 && cluster.command == 0x01){
-    	if (cluster.sourceEndpoint == 0x${epid})
+    	if (cluster.sourceEndpoint == "0x${epid}")
         {
         log.debug "Its Switch one"
     	def onoff = cluster.data[-1]
