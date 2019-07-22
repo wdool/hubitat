@@ -57,6 +57,7 @@ metadata {
 preferences {
     input("epid1", "text", title: "NUE Endpoint ID Switch 1", description: "[Endpoint ID of your NUE Zigbee Switch Button 1]", required: true)
     input("epid2", "text", title: "NUE Endpoint ID Switch 2", description: "[Endpoint ID of your NUE Zigbee Switch Button 2]", required: true)
+    input name: "logEnable", type: "bool", title: "Enable debug logging", defaultValue: true
 }
        
 // Parse incoming device messages to generate events
@@ -76,7 +77,7 @@ def parse(String description) {
 	}
     else if (description?.startsWith('on/off: ')){
   //  log.debug "onoff"
-    def refreshCmds = zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: 0x${epid1}])          
+    def refreshCmds = zigbee.readAttribute(0x0006, 0x0000, [destEndpoint: "0x${epid1}"])          
     
    return refreshCmds.collect { new hubitat.device.HubAction(it) }     
     	//def resultMap = zigbee.getKnownDescription(description)
@@ -101,7 +102,7 @@ private Map parseCatchAllMessage(String description) {
 //	log.debug cluster
     
     if (cluster.clusterId == 0x0006 && cluster.command == 0x01){
-    	if (cluster.sourceEndpoint == 0x${epid1})
+    	if (cluster.sourceEndpoint == "0x${epid1}")
        {
         log.debug "Its Switch one"
     	def onoff = cluster.data[-1]
@@ -110,7 +111,7 @@ private Map parseCatchAllMessage(String description) {
         else if (onoff == 0)
             resultMap = createEvent(name: "switch1", value: "off")
         }
-		 if (cluster.sourceEndpoint == 0x${epid2})
+		 if (cluster.sourceEndpoint == "0x${epid2}")
             {
             log.debug "Its Switch two"
     	def onoff = cluster.data[-1]
