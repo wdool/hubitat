@@ -130,6 +130,7 @@ def GetDoorStatus() {
 		   	doorStatus = doorStatus.substring(0, doorStatus.length() - 1)
 		   	int whichdoor = Integer.parseInt(door,16) - 1
 		   	status = doorStatus.split(",")[whichdoor]
+		   	status = status.split(":")[1].replaceAll("\"", "")
 		   	doorStatus = status
 		   
 			if ( status.contains("0") && !currentState.contains("0") ) {
