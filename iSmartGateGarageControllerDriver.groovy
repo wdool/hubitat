@@ -31,6 +31,7 @@
  *    2019-03-14  Bob Mergner  More cleanup
  *    2019-06-29  Shane Lord   Adjusted GoGoGate driver to work with the new iSmartGate and iSmartGate Pro
  *    2019-07-16  Shane Lord   Added capability to use door open/close sensor as Hubitat Contact Sensor
+ *    2020-04-21  bofisher     Added code to split door number from door open-close status  
  *
  *    GoGoGate and iSmartGate are trademarks and/or copyrights of REMSOL EUROPE S.L. and its affiliates
  *    	 https://ismartgate.com
