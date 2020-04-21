@@ -37,7 +37,7 @@
  *    	 https://ismartgate.com
  */
 
-def version() {"v0.1.20190716"}
+def version() {"v0.1.20200421"}
 
 import hubitat.helper.InterfaceUtils
 
